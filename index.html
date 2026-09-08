@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExploraCo | Descubre Colombia</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">🇨🇴 ExploraCo</div>
+
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#destinos">Destinos</a></li>
+                <li><a href="#explorar">Explorar</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- INICIO -->
+    <section id="inicio" class="hero">
+
+        <div class="hero-content">
+            <h1>Descubre Colombia 🇨🇴</h1>
+
+            <p>
+                Explora lugares increíbles, conoce nuestra cultura
+                y descubre la belleza de Colombia.
+            </p>
+
+            <a href="#destinos" class="btn">
+                Explorar destinos
+            </a>
+        </div>
+
+    </section>
+
+
+    <!-- DESTINOS -->
+    <section id="destinos" class="section">
+
+        <h2>Destinos destacados</h2>
+
+        <p class="section-description">
+            Conoce algunos de los lugares más increíbles de Colombia.
+        </p>
+
+        <div class="cards">
+
+            <article class="card">
+                <img src="imagenes/cartagena.jpg" alt="Cartagena">
+                <div class="card-content">
+                    <h3>Cartagena</h3>
+                    <p>
+                        Una ciudad llena de historia, playas,
+                        cultura y arquitectura colonial.
+                    </p>
+                    <button onclick="mostrarDestino('Cartagena')">
+                        Ver más
+                    </button>
+                </div>
+            </article>
+
+
+            <article class="card">
+                <img src="imagenes/medellin.jpg" alt="Medellín">
+                <div class="card-content">
+                    <h3>Medellín</h3>
+                    <p>
+                        Conoce la ciudad de la eterna primavera,
+                        sus montañas y su cultura.
+                    </p>
+                    <button onclick="mostrarDestino('Medellín')">
+                        Ver más
+                    </button>
+                </div>
+            </article>
+
+
+            <article class="card">
+                <img src="imagenes/san-andres.jpg" alt="San Andrés">
+                <div class="card-content">
+                    <h3>San Andrés</h3>
+                    <p>
+                        Disfruta de sus playas paradisíacas
+                        y del famoso mar de siete colores.
+                    </p>
+                    <button onclick="mostrarDestino('San Andrés')">
+                        Ver más
+                    </button>
+                </div>
+            </article>
+
+
+            <article class="card">
+                <img src="imagenes/bogota.jpg" alt="Bogotá">
+                <div class="card-content">
+                    <h3>Bogotá</h3>
+                    <p>
+                        Descubre la capital colombiana,
+                        sus museos, gastronomía e historia.
+                    </p>
+                    <button onclick="mostrarDestino('Bogotá')">
+                        Ver más
+                    </button>
+                </div>
+            </article>
+
+
+            <article class="card">
+                <img src="imagenes/eje-cafetero.jpg" alt="Eje Cafetero">
+                <div class="card-content">
+                    <h3>Eje Cafetero</h3>
+                    <p>
+                        Conoce las montañas, los cafetales
+                        y los hermosos paisajes cafeteros.
+                    </p>
+                    <button onclick="mostrarDestino('Eje Cafetero')">
+                        Ver más
+                    </button>
+                </div>
+            </article>
+
+
+            <article class="card">
+                <img src="imagenes/tayrona.jpg" alt="Parque Tayrona">
+                <div class="card-content">
+                    <h3>Parque Tayrona</h3>
+                    <p>
+                        Un lugar donde la selva se encuentra
+                        con las playas del Caribe colombiano.
+                    </p>
+                    <button onclick="mostrarDestino('Parque Tayrona')">
+                        Ver más
+                    </button>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPLORAR -->
+    <section id="explorar" class="section explorar">
+
+        <h2>¿Qué quieres explorar?</h2>
+
+        <p class="section-description">
+            Elige el tipo de lugar que más te guste.
+        </p>
+
+        <div class="categories">
+
+            <button onclick="filtrarCategoria('Playa')">
+                🏖️ Playa
+            </button>
+
+            <button onclick="filtrarCategoria('Montaña')">
+                ⛰️ Montaña
+            </button>
+
+            <button onclick="filtrarCategoria('Ciudad')">
+                🏙️ Ciudad
+            </button>
+
+            <button onclick="filtrarCategoria('Naturaleza')">
+                🌿 Naturaleza
+            </button>
+
+            <button onclick="filtrarCategoria('Cultura')">
+                🏛️ Cultura
+            </button>
+
+        </div>
+
+        <div id="resultado-categoria" class="resultado">
+            <p>Selecciona una categoría para descubrir un destino.</p>
+        </div>
+
+    </section>
+<!-- VENTANA DE INFORMACIÓN DEL DESTINO -->
+
+<div id="modal" class="modal">
+
+    <div class="modal-content">
+
+        <button class="close-modal" onclick="cerrarModal()">
+            &times;
+        </button>
+
+        <h2 id="modal-title"></h2>
+
+        <p id="modal-description"></p>
+
+        <div id="modal-info"></div>
+
+    </div>
+
+</div>
+
+    <!-- DESTINO ALEATORIO -->
+    <section class="random-section">
+
+        <h2>¿No sabes a dónde viajar?</h2>
+
+        <p>
+            Deja que ExploraCo elija un destino por ti.
+        </p>
+
+        <button id="random-button" class="btn">
+            🎲 Elegir destino
+        </button>
+
+        <div id="random-result"></div>
+
+    </section>
+
+
+    <!-- GALERÍA -->
+    <section id="galeria" class="section">
+
+        <h2>Galería de Colombia 📸</h2>
+
+        <p class="section-description">
+            Algunos paisajes que puedes encontrar en nuestro país.
+        </p>
+
+        <div class="gallery">
+
+            <img src="imagenes/galeria1.jpg" alt="Paisaje de Colombia">
+
+            <img src="imagenes/galeria2.jpg" alt="Paisaje colombiano">
+
+            <img src="imagenes/galeria3.jpg" alt="Paisaje de Colombia">
+
+            <img src="imagenes/galeria4.jpg" alt="Turismo en Colombia">
+
+            <img src="imagenes/galeria5.jpg" alt="Naturaleza colombiana">
+
+            <img src="imagenes/galeria6.jpg" alt="Destino colombiano">
+
+        </div>
+
+    </section>
+
+
+    <!-- NOSOTROS -->
+    <section id="nosotros" class="about">
+
+        <div class="about-image">
+            <img
+                src="imagenes/colombia-naturaleza.jpg"
+                alt="Naturaleza de Colombia"
+            >
+        </div>
+
+        <div class="about-content">
+
+            <h2>Sobre ExploraCo</h2>
+
+            <p>
+                ExploraCo es una página creada para mostrar
+                la diversidad turística de Colombia.
+            </p>
+
+            <p>
+                Nuestro objetivo es ayudar a las personas a descubrir
+                nuevos destinos y conocer la cultura, naturaleza,
+                historia y belleza de nuestro país.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section">
+
+        <h2>Contáctanos</h2>
+
+        <p class="section-description">
+            ¿Tienes alguna pregunta o recomendación?
+        </p>
+
+        <form id="contact-form">
+
+            <input
+                type="text"
+                id="nombre"
+                placeholder="Tu nombre"
+            >
+
+            <input
+                type="email"
+                id="correo"
+                placeholder="Tu correo electrónico"
+            >
+
+            <textarea
+                id="mensaje"
+                placeholder="Escribe tu mensaje"
+                rows="5"
+            ></textarea>
+
+            <button type="submit" class="btn">
+                Enviar mensaje
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+
+        <h3>🇨🇴 ExploraCo</h3>
+
+        <p>
+            Descubre Colombia, un destino a la vez.
+        </p>
+
+        <p>
+            © <span id="year"></span> ExploraCo
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
